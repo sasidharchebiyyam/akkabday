@@ -1,0 +1,1095 @@
+/* ===========================================
+   PREMIUM BIRTHDAY WEBSITE
+   style.css (PART 1)
+   Global + Loader + Landing Page
+=========================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#050505;
+    color:white;
+    overflow:hidden;
+}
+
+/* =====================================
+   Animated Background
+===================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top left,#ffb30022,transparent 35%),
+
+    radial-gradient(circle at bottom right,#ff4d6d22,transparent 35%),
+
+    radial-gradient(circle at center,#ffffff08,transparent 55%);
+
+    animation:bgMove 12s ease-in-out infinite alternate;
+
+    z-index:-3;
+
+}
+
+@keyframes bgMove{
+
+0%{
+transform:scale(1);
+filter:blur(0px);
+}
+
+100%{
+transform:scale(1.15);
+filter:blur(5px);
+}
+
+}
+
+/* =====================================
+ Floating Hearts & Particles
+===================================== */
+
+#hearts,
+#particles{
+
+position:fixed;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+z-index:-1;
+
+}
+
+/* =====================================
+ Loader
+===================================== */
+
+#loader{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:#000;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+transition:1s;
+
+}
+
+.loader-ring{
+
+width:100px;
+height:100px;
+
+border-radius:50%;
+
+border:6px solid rgba(255,255,255,.15);
+
+border-top:6px solid gold;
+
+animation:spin 1.2s linear infinite;
+
+margin-bottom:30px;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+#loader h1{
+
+font-size:40px;
+
+font-weight:600;
+
+color:#FFD700;
+
+margin-bottom:15px;
+
+}
+
+#loader p{
+
+font-size:18px;
+
+color:#ddd;
+
+}
+
+/* =====================================
+ Common Pages
+===================================== */
+
+.page{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:30px;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:1s;
+
+}
+
+.page.active{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+/* =====================================
+ Landing Page
+===================================== */
+
+.glass{
+
+width:90%;
+
+max-width:760px;
+
+padding:60px;
+
+text-align:center;
+
+border-radius:35px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.12);
+
+box-shadow:
+
+0 0 35px rgba(255,215,0,.15),
+
+0 0 90px rgba(255,255,255,.05);
+
+animation:floatCard 5s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.glass h3{
+
+font-family:'Great Vibes',cursive;
+
+font-size:34px;
+
+color:#FFD700;
+
+margin-bottom:20px;
+
+}
+
+.glass h1{
+
+font-size:58px;
+
+line-height:1.2;
+
+margin-bottom:30px;
+
+background:linear-gradient(90deg,#FFD700,#fff,#ffb7d5);
+
+-webkit-background-clip:text;
+
+/* Ensure both vendor-prefixed and standard properties for wider compatibility */
+-webkit-background-clip: text;
+background-clip: text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.glass p{
+
+font-size:20px;
+
+line-height:1.9;
+
+color:#e6e6e6;
+
+margin-bottom:40px;
+
+}
+
+/* =====================================
+ Premium Button
+===================================== */
+
+button{
+
+padding:18px 45px;
+
+font-size:18px;
+
+font-weight:600;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+background:linear-gradient(135deg,#FFD700,#ff9500);
+
+color:#111;
+
+transition:.35s;
+
+box-shadow:
+
+0 10px 25px rgba(255,215,0,.35);
+
+}
+
+button:hover{
+
+transform:translateY(-6px) scale(1.05);
+
+box-shadow:
+
+0 15px 45px rgba(255,215,0,.6);
+
+}
+
+button:active{
+
+transform:scale(.98);
+
+}
+
+/* =====================================
+ Responsive
+===================================== */
+
+@media(max-width:768px){
+
+.glass{
+
+padding:35px;
+
+}
+
+.glass h1{
+
+font-size:38px;
+
+}
+
+.glass h3{
+
+font-size:28px;
+
+}
+
+.glass p{
+
+font-size:17px;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+#loader h1{
+
+font-size:28px;
+
+}
+
+}
+/* ===========================================
+   PREMIUM BIRTHDAY WEBSITE
+   style.css (PART 2)
+   Photo Page + Wish Page + Final Page
+===========================================*/
+
+/* ==========================
+      PHOTO PAGE
+========================== */
+
+.photoBox{
+    width:90%;
+    max-width:900px;
+    text-align:center;
+    animation:fadeUp 1s ease;
+}
+
+.photoRing{
+    width:320px;
+    height:320px;
+    margin:auto;
+    padding:8px;
+    border-radius:50%;
+    background:linear-gradient(45deg,#FFD700,#ffffff,#ff8fb1,#FFD700);
+    animation:ringRotate 10s linear infinite;
+    box-shadow:
+        0 0 35px rgba(255,215,0,.45),
+        0 0 70px rgba(255,255,255,.12);
+}
+
+.photoRing img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    border:6px solid #111;
+}
+
+
+
+.photoBox h2{
+    margin-top:35px;
+    font-size:48px;
+    font-family:'Great Vibes',cursive;
+    color:#FFD700;
+}
+
+.photoBox p{
+    max-width:700px;
+    margin:20px auto 35px;
+    line-height:1.9;
+    font-size:20px;
+    color:#ededed;
+}
+
+/* ==========================
+      WISH PAGE
+========================== */
+
+.wishCard{
+
+    width:90%;
+    max-width:900px;
+
+    padding:55px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 40px rgba(255,215,0,.18);
+
+    animation:fadeUp 1s ease;
+
+}
+
+.wishCard{
+    width:90%;
+    max-width:900px;
+    height:80vh;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:0 0 40px rgba(255,215,0,.18);
+}
+
+#typing{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    margin:20px 0;
+
+    padding-right:12px;
+
+    white-space:pre-wrap;
+
+    line-height:2;
+
+    font-size:19px;
+
+    color:#eee;
+
+    border-left:4px solid gold;
+
+    padding-left:20px;
+
+    scroll-behavior:smooth;
+}
+
+#finishBtn{
+
+    margin-top:20px;
+
+    align-self:center;
+
+    flex-shrink:0;
+}
+/* ==========================
+      FINAL PAGE
+========================== */
+
+.finalCard{
+    width:90%;
+    max-width:700px;
+    max-height:80vh;
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:0 0 50px rgba(255,215,0,.18);
+
+    overflow-y:auto;
+}
+
+.finalCard h1{
+
+    font-size:64px;
+
+    color:#FFD700;
+
+    text-shadow:
+        0 0 12px rgb(217, 184, 0),
+        0 0 28px rgb(0, 255, 89);
+
+    margin-bottom:20px;
+
+}
+
+.finalCard h2{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:40px;
+
+    color:#ffffff;
+
+    margin-bottom:25px;
+
+}
+
+.finalCard p{
+
+    font-size:21px;
+
+    line-height:2;
+
+    color:#ededed;
+
+    margin-bottom:30px;
+
+}
+
+.finalCard h3{
+
+    color:#FFD700;
+
+    font-size:28px;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.finalCard h4{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:26px;
+
+    color:#ffffff;
+
+}
+
+/* ==========================
+      CONFETTI CANVAS
+========================== */
+
+#confetti{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+/* ==========================
+      ANIMATIONS
+========================== */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================
+      MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.photoRing{
+
+    width:240px;
+    height:240px;
+
+}
+
+.photoBox h2{
+
+    font-size:36px;
+
+}
+
+.photoBox p{
+
+    font-size:17px;
+
+}
+
+.wishCard{
+
+    padding:30px;
+
+}
+
+.wishCard h1{
+
+    font-size:34px;
+
+}
+
+#typing{
+    height:320px;
+    overflow-y:auto;
+
+    white-space:pre-wrap;
+    line-height:2;
+    font-size:19px;
+    color:#eeeeee;
+
+    border-left:4px solid gold;
+    padding-left:20px;
+    padding-right:10px;
+
+    scroll-behavior:smooth;
+}
+#typing::-webkit-scrollbar{
+    width:8px;
+}
+
+#typing::-webkit-scrollbar-track{
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+}
+
+#typing::-webkit-scrollbar-thumb{
+    background:linear-gradient(gold,#ffb700);
+    border-radius:20px;
+}
+.finalCard{
+
+    padding:30px;
+
+}
+
+.finalCard h1{
+
+    font-size:40px;
+
+}
+
+.finalCard h2{
+
+    font-size:30px;
+
+}
+
+.finalCard p{
+
+    font-size:17px;
+
+}
+
+.finalCard h3{
+
+    font-size:21px;
+
+}
+
+.finalCard h4{
+
+    font-size:20px;
+
+}
+
+}
+/* ===========================================
+   PREMIUM BIRTHDAY WEBSITE
+   style.css (PART 3)
+   Hearts • Particles • Final Effects
+===========================================*/
+
+/* ===========================
+   FLOATING HEARTS
+=========================== */
+
+.heart{
+    position:fixed;
+    bottom:-50px;
+    color:#ff4d88;
+    font-size:18px;
+    pointer-events:none;
+    animation:heartFloat linear forwards;
+    opacity:.8;
+    z-index:0;
+}
+
+@keyframes heartFloat{
+
+    0%{
+        transform:translateY(0) scale(.4) rotate(0deg);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        translateY(-120vh)
+        translateX(-80px)
+        scale(1.3)
+        rotate(360deg);
+
+        opacity:0;
+    }
+
+}
+
+/* ===========================
+   GOLD PARTICLES
+=========================== */
+
+.particle{
+
+    position:fixed;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#FFD700;
+
+    box-shadow:
+    0 0 12px gold,
+    0 0 25px gold;
+
+    pointer-events:none;
+
+    animation:particleMove linear forwards;
+
+}
+
+@keyframes particleMove{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(0)
+        scale(.3);
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:
+        translateY(-120vh)
+        translateX(40px)
+        scale(1.8);
+
+    }
+
+}
+
+/* ===========================
+   PHOTO GLOW
+=========================== */
+
+.photoRing{
+
+    animation:
+    ringRotate 10s linear infinite,
+    photoGlow 3s ease-in-out infinite;
+
+}
+
+@keyframes photoGlow{
+
+0%{
+
+box-shadow:
+0 0 20px rgba(255,215,0,.3),
+0 0 40px rgba(255,215,0,.15);
+
+}
+
+50%{
+
+box-shadow:
+0 0 40px rgba(255,215,0,.8),
+0 0 80px rgba(255,215,0,.4);
+
+}
+
+100%{
+
+box-shadow:
+0 0 20px rgba(255,215,0,.3),
+0 0 40px rgba(255,215,0,.15);
+
+}
+
+}
+
+/* ===========================
+   BUTTON SHINE
+=========================== */
+
+button{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+button::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-100%;
+
+width:60%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.7),
+transparent);
+
+transform:skewX(-30deg);
+
+transition:.8s;
+
+}
+
+button:hover::before{
+
+left:140%;
+
+}
+
+/* ===========================
+   TEXT GLOW
+=========================== */
+
+.glass h1,
+.wishCard h1,
+.finalCard h1{
+
+animation:textGlow 3s ease-in-out infinite;
+
+}
+
+@keyframes textGlow{
+
+0%{
+
+filter:drop-shadow(0 0 8px gold);
+
+}
+
+50%{
+
+filter:drop-shadow(0 0 20px gold);
+
+}
+
+100%{
+
+filter:drop-shadow(0 0 8px gold);
+
+}
+
+}
+
+/* ===========================
+   GLASS CARD GLOW
+=========================== */
+
+.glass,
+.wishCard,
+.finalCard{
+
+transition:.4s;
+
+}
+
+.glass:hover,
+.wishCard:hover,
+.finalCard:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 0 50px rgba(255,215,0,.35),
+
+0 0 120px rgba(255,255,255,.08);
+
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:gold;
+
+border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#ffd84d;
+
+}
+
+/* ===========================
+   PAGE TRANSITION
+=========================== */
+
+.page{
+
+transition:
+opacity .8s ease,
+transform .8s ease;
+
+transform:scale(.98);
+
+}
+
+.page.active{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+/* ===========================
+   FOOTER FADE
+=========================== */
+
+.finalCard h4{
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+opacity:.7;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:.7;
+
+}
+
+}
+
+/* ===========================
+   MOBILE IMPROVEMENTS
+=========================== */
+
+@media(max-width:768px){
+
+body{
+
+overflow-x:hidden;
+
+}
+
+.glass,
+.wishCard,
+.finalCard{
+
+width:95%;
+
+}
+
+button{
+
+font-size:16px;
+
+padding:15px 30px;
+
+}
+
+.photoRing{
+
+width:220px;
+height:220px;
+
+}
+
+}
